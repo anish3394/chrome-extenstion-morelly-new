@@ -1,0 +1,22 @@
+{
+    "manifest_version": 3,
+    "name": "Morelly Dev: Anish",
+    "version": "0.0.1",
+    "description": "My Extension for the morelly company",
+    "author": "as@morelly.com.au",
+    "icons":{
+        "16" : "images/Morelly-Favicon-blue.png",
+        "48" : "images/Morelly-Favicon-blue.png",
+        "128": "images/Morelly-Favicon-blue.png"
+
+    },
+    "action": {
+        "default_icon": {
+            "16" : "images/Morelly-Favicon-blue.png",
+            "48" : "images/Morelly-Favicon-blue.png",
+            "128": "images/Morelly-Favicon-blue.png"
+        },
+        "default_title": "Morelly",
+        "default_popup": "popup.html"
+    }
+}
