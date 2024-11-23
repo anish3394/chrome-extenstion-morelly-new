@@ -23,5 +23,18 @@
     ,
     "background": {
         "service_worker": "background.js"
+    },
+    "content_scripts": [
+        {
+          "js": ["contentScript.js"],
+          "matches": [
+            "https://*.google.com/*"
+          ]
+        //   ,
+        //   "matches": [
+        //     "<all_urls>"
+        //   ]
         }
+      ]
+
 }

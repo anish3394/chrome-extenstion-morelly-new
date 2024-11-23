@@ -1,0 +1,1 @@
+chrome.runtime.sendMessage({greetings:"hello from contentscript"},function(response){console.log(response);})

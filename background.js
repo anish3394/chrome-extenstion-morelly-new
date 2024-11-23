@@ -6,3 +6,7 @@ chrome. runtime.onInstalled. addListener(() => {
     url: 'https://morelly.com.au/'})
     }
 )
+chrome.runtime.onMessage.addListener((request, sender, sendResponse) =>{
+    console.log(request)
+    sendResponse({anish:"this is from background"})
+})
