@@ -4,14 +4,14 @@
 
 // Function to find the target div
 const findTargetDiv = () => {
-    const target = document.querySelector('td[class="gU aYL"]');
+    const targets = document.querySelectorAll('td[class="gU aYL"]');
 
     // Check if the target div is found and alert accordingly
-    if (target) {
+    // if (target) {
         // alert("Target div found - :ns");
-        
+        targets.forEach(target => {
         // Check if the content is already added to avoid duplication ::svg is from:https://danmarshall.github.io/google-font-to-svg-path/
-        if (!target.querySelector('.wisestamp-icon-container')||!target.querySelector('div[class="morelly"]')) {
+        if (!target.querySelector('.wisestamp-icon-container') && !target.querySelector('div.morelly'))            {
             target.insertAdjacentHTML("beforeend", `
                 <div id=":rj2" class="J-JN-M-I J-J5-Ji Xv L3 T-I-ax7 T-I wisestamp-icon-container" jslog="147027; u014N:cOuCgd,Kr2w4b,xr6bB;" role="button" tabindex="1" aria-haspopup="true" aria-expanded="false" aria-label="More options" style="user-select: none; padding-left: 10px" data-v-app="">
                     <div role="button" tabindex="0" class="signatures-panel-button ws-active" data-v-83acab="">
@@ -25,8 +25,8 @@ const findTargetDiv = () => {
         }
 
         // clearInterval(intervalId); // Stop checking once the element is found
-    }
+    })
 };
 
 // Use setInterval to keep checking until the element is loaded
-const intervalId = setInterval(findTargetDiv, 1000); // Check every 1 second
+const intervalId = setInterval(findTargetDiv, 500); // Check every 1 second
