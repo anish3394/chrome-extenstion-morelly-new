@@ -24,7 +24,7 @@
     },
     "content_scripts": [
         {
-            "js": ["contentScript.js"],
+            "js": ["contentData.js","contentScript.js"],
             "matches": ["https://mail.google.com/*"],
             "run_at": "document_idle"
         }

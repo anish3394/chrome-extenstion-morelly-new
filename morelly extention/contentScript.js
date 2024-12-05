@@ -1,6 +1,4 @@
-// contentScript.js
 
-// alert("contentScript.js is running!");
 
 // Function to find the target div
 const findTargetDiv = (intervalId) => {
@@ -22,13 +20,13 @@ const findTargetDiv = (intervalId) => {
                     </div>
                 </div>
             `);
+            clearInterval(intervalId); // Stop checking once the element is found
         }
-        console.log("anish yo function hit bhayo")
-        // clearInterval(intervalId); // Stop checking once the element is found and content is inserted
 
-        
+
+
     })
-    clearInterval(intervalId); // Stop checking once the element is found
+
 };
 // // Use setInterval to keep checking until the element is loaded
 // const intervalId = setInterval(findTargetDiv, 100); // Check every 1 second
@@ -36,51 +34,14 @@ const findTargetDiv = (intervalId) => {
 
 // Function to start checking for the target div
 const startFindingTargetDiv = () => {
-    
+
     const intervalId = setInterval(() => {
-        console.log("hi hi")
+
         findTargetDiv(intervalId);
-    }, 1000); // Check every 100 milliseconds
+    }, 100); // Check every 100 milliseconds
 };
 startFindingTargetDiv();
-// document.addEventListener('click', startFindingTargetDiv);
 
-// Event listener for the Compose button
-const setupComposeButtonListener = () => {
-    console.log("hi")
-    const composeButton = document.querySelector('div.T-I.T-I-KE.L3[role="button"][jscontroller="eIu7Db"]');
-    if (composeButton) {
-        composeButton.addEventListener('click', startFindingTargetDiv);
-
-    } else {
-        // Keep trying to add the listener until the Compose button is found
-        setTimeout(setupComposeButtonListener, 500);
-    }
-    
-//     // const heads = document.querySelector('div[class="amn"]')
-    
-//     const composeButton2 = document.querySelector('span[class="ams bkH"]');
-//     if (composeButton2) {
-//         console.log("222222")
-//         composeButton2.addEventListener('click', startFindingTargetDiv);
-
-//     } else {
-//         // Keep trying to add the listener until the Compose button is found
-//         setTimeout(setupComposeButtonListener, 10000);
-//     }
-//     const composeButton3 = document.querySelector('span[class="ams bkG"]');
-//     if (composeButton3) {
-//         console.log("333333")
-//         composeButton3.addEventListener('click', startFindingTargetDiv);
-
-//     } else {
-//         // Keep trying to add the listener until the Compose button is found
-//         setTimeout(setupComposeButtonListener, 10000);
-//     }
-};
-
-// Start setting up the listener for the Compose button
-setupComposeButtonListener();
 
 
 
@@ -127,251 +88,36 @@ setupComposeButtonListener();
 
 // Function to find the editable div and insert content when the signatures panel button is clicked
 const findEditableDivAndInsertContent = () => {
+    // Find all divs with class 'aO7' (check if this selector is correct)
     const editableDivs = document.querySelectorAll('div[class="aO7"]');
+    
+    // If no editable divs found, exit early
+    if (editableDivs.length === 0) {
+        console.log('No editable divs found.');
+        return;
+    }
+    
     editableDivs.forEach(editableDiv => {
+        // Find the inner editable div
         const innerDiv = editableDiv.querySelector('div[aria-label="Message Body"][contenteditable="true"]');
+        
         if (innerDiv) {
-            console.log("anish anish anish")
-            innerDiv.insertAdjacentHTML("beforeend", `
+            innerDiv.insertAdjacentHTML("beforeend",div1Content )
 
-        <div dir="ltr" style="color: rgb(0, 0, 0); font-family: Times; font-size: medium;">
-        <table style="direction: ltr; border-collapse: collapse;">
-            <tbody>
-                <tr>
-                    <td style="font-size: 0px; height: 12px; line-height: 0;"></td>
-                </tr>
-                <tr>
-                    <td>
-                        <table cellpadding="0" cellspacing="0" border="0" width="100%" style="width: 1234.18px;">
-                            <tbody>
-                                <tr>
-                                    <td>
-                                        <table cellpadding="0" cellspacing="0" width="100%"
-                                            style="width: 1234.18px; line-height: normal;">
-                                            <tbody>
-                                                <tr>
-                                                    <td>
-                                                        <p style="font-size: 17px; margin: 1px;">Kind regards,</p>
-                                                        <p style="margin: 1px;"><img
-                                                                src="https://cdn.gifo.wisestamp.com/apps/regards/a/Anish%20Shrestha/bas"
-                                                                alt="Anish Shrestha" height="69" style="height: 69px;"></p>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td style="line-height: 0.01px; padding-top: 16px; font-size: 1px;"></td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <table cellpadding="0" cellspacing="0"
-                                            style="border-collapse: collapse; line-height: 1.15;">
-                                            <tbody>
-                                                <tr>
-                                                    <td
-                                                        style="height: 1px; width: 81px; vertical-align: top; padding: 0.01px 1px;">
-                                                        <table cellpadding="0" cellspacing="0"
-                                                            style="border-collapse: collapse;">
-                                                            <tbody>
-                                                                <tr>
-                                                                    <td
-                                                                        style="vertical-align: top; padding: 0.01px 1px 0.01px 0.01px; width: 81px; text-align: center;">
-                                                                        <img border="0"
-                                                                            src="https://cdn.gifo.wisestamp.com/effect?static_effect_a=&amp;static_effect_b=&amp;animation=fade&amp;file_a=https://d36urhup7zbd7q.cloudfront.net/u/RM0g1l9yNem/2a91b905-bcf5-4cbe-958b-c1f1eb51787e__400x400__.png&amp;file_b=https://d36urhup7zbd7q.cloudfront.net/u/RM0g1l9yNem/2e474597-a8a7-4902-aac7-940545ca25fb__400x400__.jpeg"
-                                                                            height="81" width="81" alt="photo"
-                                                                            style="width: 81px; vertical-align: middle; border-radius: 50%; height: 81px; border: 0px; display: block;">
-                                                                    </td>
-                                                                </tr>
-                                                            </tbody>
-                                                        </table>
-                                                    </td>
-                                                    <td valign="top"
-                                                        style="padding: 0.01px 0.01px 0.01px 18px; vertical-align: top;">
-                                                        <table cellpadding="0" cellspacing="0"
-                                                            style="border-collapse: collapse;">
-                                                            <tbody>
-                                                                <tr>
-                                                                    <td style="font-size: 18px; padding-bottom: 18px;">
-                                                                        <p style="margin: 0.1px; line-height: 23.76px;">
-                                                                            <span
-                                                                                style="font-family: Arial; font-weight: bold; color: rgb(69, 102, 142); letter-spacing: 0px; text-wrap-mode: nowrap;">Anish
-                                                                                Shrestha</span><br><span
-                                                                                style="font-family: Arial; font-size: 14px; font-weight: bold; color: rgb(33, 33, 33); text-wrap-mode: nowrap;">Morelly®</span>
-                                                                        </p>
-                                                                    </td>
-                                                                    <td style="vertical-align: bottom;">
-                                                                        <table cellpadding="0" cellspacing="0" align="right"
-                                                                            style="border-collapse: collapse;">
-                                                                            <tbody>
-                                                                                <tr>
-                                                                                    <td
-                                                                                        style="padding: 0.01px 0.01px 18px 50px;">
-                                                                                        <table border="0" cellpadding="0"
-                                                                                            cellspacing="0">
-                                                                                            <tbody>
-                                                                                                <tr>
-                                                                                                    <td align="left"
-                                                                                                        style="padding-right: 6px; text-align: center; padding-top: 0px;">
-                                                                                                        <p
-                                                                                                            style="margin: 1px;">
-                                                                                                            <a href="https://instagram.com/morellyau"
-                                                                                                                target="_blank"
-                                                                                                                rel="nofollow noreferrer"><img
-                                                                                                                    width="25"
-                                                                                                                    height="25"
-                                                                                                                    src="https://cdn.gifo.wisestamp.com/s/inst/1f304a/50/0/border.png"
-                                                                                                                    border="0"
-                                                                                                                    alt="instagram"
-                                                                                                                    style="float: left; border: none;"></a>
-                                                                                                        </p>
-                                                                                                    </td>
-                                                                                                    <td align="left"
-                                                                                                        style="padding-right: 6px; text-align: center; padding-top: 0px;">
-                                                                                                        <p
-                                                                                                            style="margin: 1px;">
-                                                                                                            <a href="https://facebook.com/Morelly®"
-                                                                                                                target="_blank"
-                                                                                                                rel="nofollow noreferrer"><img
-                                                                                                                    width="25"
-                                                                                                                    height="25"
-                                                                                                                    src="https://cdn.gifo.wisestamp.com/s/fb/1f304a/50/0/border.png"
-                                                                                                                    border="0"
-                                                                                                                    alt="facebook"
-                                                                                                                    style="float: left; border: none;"></a>
-                                                                                                        </p>
-                                                                                                    </td>
-                                                                                                    <td align="left"
-                                                                                                        style="padding-right: 6px; text-align: center; padding-top: 0px;">
-                                                                                                        <p
-                                                                                                            style="margin: 1px;">
-                                                                                                            <a href="https://us.linkedin.com/in/Morelly®"
-                                                                                                                target="_blank"
-                                                                                                                rel="nofollow noreferrer"><img
-                                                                                                                    width="25"
-                                                                                                                    height="25"
-                                                                                                                    src="https://cdn.gifo.wisestamp.com/s/ld/1f304a/50/0/border.png"
-                                                                                                                    border="0"
-                                                                                                                    alt="linkedin"
-                                                                                                                    style="float: left; border: none;"></a>
-                                                                                                        </p>
-                                                                                                    </td>
-                                                                                                </tr>
-                                                                                            </tbody>
-                                                                                        </table>
-                                                                                    </td>
-                                                                                </tr>
-                                                                            </tbody>
-                                                                        </table>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td colspan="2"
-                                                                        style="padding: 0.01px 0.01px 18px; border-bottom: 1px solid rgb(31, 48, 74); border-top: 1px solid rgb(31, 48, 74);">
-                                                                        <table cellpadding="0" cellspacing="0"
-                                                                            style="border-collapse: collapse; width: 281.211px;">
-                                                                            <tbody>
-                                                                                <tr>
-                                                                                    <td nowrap="" width="226"
-                                                                                        style="padding-top: 18px; text-wrap-mode: nowrap; width: 226px; font-family: Arial;">
-                                                                                        <p
-                                                                                            style="margin: 1px; line-height: 11.88px; font-size: 12px;">
-                                                                                            <img src="https://cdn.gifo.wisestamp.com/s/rfp3/45668E/26/trans.png"
-                                                                                                width="12" alt="icon"
-                                                                                                style="line-height: 14.4px; width: 12px;">&nbsp;<a
-                                                                                                href="tel:1300208198"
-                                                                                                target="_blank"
-                                                                                                rel="nofollow noreferrer"
-                                                                                                style="text-decoration: unset;"><span
-                                                                                                    style="line-height: 14.4px; color: rgb(33, 33, 33);">1300
-                                                                                                    208
-                                                                                                    198</span></a>&nbsp;&nbsp;<img
-                                                                                                src="https://cdn.gifo.wisestamp.com/s/rfw1/45668E/26/trans.png"
-                                                                                                width="12" alt="icon"
-                                                                                                style="line-height: 14.4px; width: 12px;">&nbsp;<a
-                                                                                                href="https://morelly.com.au"
-                                                                                                target="_blank"
-                                                                                                rel="nofollow noreferrer"
-                                                                                                style="text-decoration: unset;"><span
-                                                                                                    style="line-height: 14.4px; color: rgb(33, 33, 33);">morelly.com.au</span></a>
-                                                                                        </p>
-                                                                                    </td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <td nowrap="" width="140"
-                                                                                        style="padding-top: 10px; text-wrap-mode: nowrap; width: 140px; font-family: Arial;">
-                                                                                        <p
-                                                                                            style="margin: 1px; line-height: 11.88px; font-size: 12px;">
-                                                                                            <img src="https://cdn.gifo.wisestamp.com/s/rfem1/45668E/26/trans.png"
-                                                                                                width="12" alt="icon"
-                                                                                                style="line-height: 14.4px; width: 12px;">&nbsp;<a
-                                                                                                href="mailto:as@morelly.com.au"
-                                                                                                target="_blank"
-                                                                                                rel="nofollow noreferrer"
-                                                                                                style="text-decoration: unset;"><span
-                                                                                                    style="line-height: 14.4px; color: rgb(33, 33, 33);">as@morelly.com.au</span></a>
-                                                                                        </p>
-                                                                                    </td>
-                                                                                </tr>
-                                                                            </tbody>
-                                                                        </table>
-                                                                    </td>
-                                                                </tr>
-                                                            </tbody>
-                                                        </table>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td style="line-height: 0.01px; padding-top: 16px; font-size: 1px;"></td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <table cellpadding="0" cellspacing="0" width="100%"
-                                            style="width: 1234.18px; color: gray; border-top-width: 1px; border-top-style: solid; line-height: normal;">
-                                            <tbody>
-                                                <tr>
-                                                    <td style="padding: 9px 8px 0px 0px;">
-                                                        <p
-                                                            style="color: rgb(136, 136, 136); font-size: 10px; margin: 1px; line-height: 12px; font-family: Arial;">
-                                                            IMPORTANT: The contents of this email and any attachments are
-                                                            confidential. They are intended for the named recipient(s) only.
-                                                            If you have received this email by mistake, please notify the
-                                                            sender immediately and do not disclose the contents to anyone or
-                                                            make copies thereof.</p>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td style="line-height: 0.01px; padding-top: 16px; font-size: 1px;"></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </td>
-                </tr>
-                <tr>
-                    <td style="font-family: &quot;ws-id WryrYvo4PvDX&quot;; font-size: 0.01px; line-height: 0;">&nbsp;</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
 
-        `);
+
+
+        } else {
+            console.log('No editable message body found within the div');
         }
-    })
+    });
 };
+
 // Event listener for the signatures panel button
 const setupSignaturesPanelButtonListener = () => {
     const signaturesPanelButtons = document.querySelectorAll('div.signatures-panel-button.ws-active[role="button"][tabindex="0"]');
     if (signaturesPanelButtons.length > 0) {
-        console.log("anish you button click bhayo")
+
         signaturesPanelButtons.forEach(button => {
             button.addEventListener('click', findEditableDivAndInsertContent);
         });
@@ -401,9 +147,8 @@ function handleAnyClick() {
     // Call both functions here
     startFindingTargetDiv();
     setupSignaturesPanelButtonListener();
-  }
-  
-  // Add event listener to the entire document
-  
-  function handleAnyClick2() {document.addEventListener('click', handleAnyClick);}
-  handleAnyClick2()
+}
+
+// Add event listener to the entire document
+
+document.addEventListener('click', handleAnyClick);
